@@ -8,15 +8,15 @@
 
 3.create package.json file to /app/chat/:
 
-{
-  "name": "realtime-server",
-  "version": "0.0.1",
-  "description": "my first realtime server",
-  "dependencies": {
-    "express": "^4.13.3",
-    "socket.io": "^1.4.3"
-  }
-}
+    {
+      "name": "realtime-server",
+      "version": "0.0.1",
+      "description": "my first realtime server",
+      "dependencies": {
+        "express": "^4.13.3",
+        "socket.io": "^1.4.3"
+      }
+    }
 
 4.exec command: 
 npm install --save express
