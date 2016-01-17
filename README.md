@@ -37,3 +37,11 @@
 6.exec command
 
     node chat.js
+
+7.use client js
+
+    chat.init();
+	chat.login();
+	chat.send('login ....');
+	chat.fm('system .....');
+	chat.loginout();
