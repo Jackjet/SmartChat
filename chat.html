@@ -1,0 +1,68 @@
+<html>
+<head>
+	<script src="http://cdn.ljja.cn/file/js/jquery-1.10.2.min.js"></script>
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script>
+	
+		$(function(){
+			
+			var w = window;
+			
+			w.chat = {
+				userid : null,
+				socket : null,
+								
+				init : function(){
+				
+					this.userid = new Date().getTime() + "" + Math.floor(Math.random() * 899 + 100 );
+				
+					this.socket = io.connect('ws://localhost:3000');
+					
+					this.socket.on('login', function(o){
+						console.log(o);
+					});
+					
+					this.socket.on('loginout', function(o){
+						console.log(o);
+					});
+					
+					this.socket.on('receive'+ this.userid, function(o){
+						console.log(o);
+					});
+					
+					this.socket.on('receive', function(o){
+						console.log(o);
+					});
+					
+				},
+				
+				login : function(){
+					
+					this.socket.emit('login', { userid: this.userid });
+				},
+				
+				loginout : function(){
+					this.socket.emit('login', { userid: this.userid });
+				},
+				
+				send : function(data){
+					this.socket.emit('send', { userid: this.userid, data : data, fm: false });
+				},
+				
+				fm : function(data){
+					this.socket.emit('send', { userid: this.userid, data : data, fm: true });
+				}
+			};
+			
+
+			chat.init();
+			chat.login();
+			chat.send('login ....');
+			chat.fm('system .....');
+			chat.loginout();
+		});
+
+	</script>
+</head>
+<body></body>
+</html>
