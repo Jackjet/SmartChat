@@ -7,6 +7,7 @@
 2.Mkdir work directory : /app/chat
 
 3.create package.json file to /app/chat/:
+
 {
   "name": "realtime-server",
   "version": "0.0.1",
