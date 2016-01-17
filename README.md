@@ -4,7 +4,8 @@
 #step
 1.Download and install <a href="https://nodejs.org/en/download/" target="_blank">node.js</a>
 
-2.Mkdir work directory : /app/chat
+2.Mkdir work directory
+    mkdir /app/chat
 
 3.create package.json file to /app/chat/:
 
@@ -19,10 +20,10 @@
     }
 
 4.exec command: 
-npm install --save express
-npm install --save socket.io
+    npm install --save express
+    npm install --save socket.io
 
 5.create chat.js
 
-6.exec command:
-node chat.js
+6.exec command
+    node chat.js
