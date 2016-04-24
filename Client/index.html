@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.ljja.cn/file/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            $('.btn-min').click(function () {
+                $('.m-lite-content').hide();
+                $('.m-lite-editor').hide();
+                $('.m-lite-opt').hide();
+                $(this).hide();
+                $('.btn-max').show();
+            });
+
+            $('.btn-max').click(function () {
+                $('.m-lite-content').show();
+                $('.m-lite-editor').show();
+                $('.m-lite-opt').show();
+                $(this).hide();
+                $('.btn-min').show();
+            });
+
+			$('.m-lite-title-notify-text').click(function () {
+                $('.m-lite-content').show();
+                $('.m-lite-editor').show();
+                $('.m-lite-opt').show();
+                $('.btn-min').show();
+				$('.btn-max').hide();
+				$(this).hide();
+            });
+
+            $('.btn-export').click(function () {
+                alert('导出聊天记录');
+            });
+
+            $('.btn-face').click(function () {
+                $(this).addClass('btn-face-active');
+                $('.BD-QIAO-IM-FACE-WRAP').show();
+            });
+
+            $('.btn-font').click(function () {
+                $(this).addClass('btn-font-active');
+                $('.BD-QIAO-IM-FONT-WRAP').show();
+            });
+
+            $('.btn-send').click(function () {
+				sendMessage();
+            });
+			
+			$('.m-lite-input-area').keydown(function(e){
+			
+				if(window.event) e = window.event;
+				
+				var keycode = e.charCode || e.keyCode;
+				
+				if(keycode == 13){
+					sendMessage();
+				}
+				
+			});
+
+            $('.BD-QIAO-IM-FACE-WRAP a').click(function () {
+				$('.btn-face').removeClass('btn-face-active');
+                $('.m-lite-input-area').append($(this).html());
+                $('.BD-QIAO-IM-FACE-WRAP').hide();
+				
+            });
+			
+			function sendMessage(){
+				var username = '张经理';
+				var content = $('.m-lite-input-area').val();
+				var time = '15:30';
+				
+				if(content!=""){				
+					appendServerChat(username, content, time);
+					appendClientChat(username, content, time);
+					$('.m-lite-input-area').val('').focus();
+				}
+			};
+			
+			function appendServerChat(username, content, time){
+
+				var html = '<div class="m-lite-msg msg-server"><div class="m-lite-msg-title">'+username+'&nbsp;'+time+'</div><div class="m-lite-msg-content">'+content+'<br></div><div class="m-lite-msg-cursor"></div></div>';
+				
+				$('.m-lite-content').append(html);
+				
+				document.getElementById('m-lite-content').scrollTop = document.getElementById('m-lite-content').scrollHeight
+			
+			};
+			
+			function appendClientChat(username, content, time){
+			
+				var html = '<div class="m-lite-msg msg-client"><div class="m-lite-msg-title">'+username+'&nbsp;'+time+'</div><div class="m-lite-msg-content">'+content+'<br></div><div class="m-lite-msg-cursor"></div></div>';
+				
+				$('.m-lite-content').append(html);
+				
+				document.getElementById('m-lite-content').scrollTop = document.getElementById('m-lite-content').scrollHeight
+			
+			}
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="BD_QIAO_WEBIM_LITE_WRAP" class="BD-QIAO-WEBIM-LITE-WRAP">
+
+        <div class="m-lite-title m-lite-title-notify" style="border-color: rgb(213, 213, 213); background: -webkit-linear-gradient(top, rgb(253, 254, 255), rgb(213, 213, 213));">
+            <a href="#" class="m-lite-title-btn btn-max" style="display: none;"></a>
+            <a href="#" class="m-lite-title-btn btn-min"></a>
+            <span class="m-lite-title-text">在线咨询</span>
+            <span class="m-lite-title-notify-text"><em></em>您有未读消息</span>
+        </div>
+
+        <div id="m-lite-content" class="m-lite-content" style="border-color: rgb(213, 213, 213);">
+
+            <div class="m-lite-msg msg-server">
+                <div class="m-lite-msg-title">郭经理&nbsp;15:20:24</div>
+                <div class="m-lite-msg-content">
+                    已经很久没有收到您的讯息，您还有其他需要我服务的么？<br>
+                </div>
+                <div class="m-lite-msg-cursor"></div>
+            </div>
+
+            <div class="m-lite-msg msg-server">
+                <div class="m-lite-msg-title">郭经理&nbsp;15:22:06</div>
+                <div class="m-lite-msg-content">已经很久没有收到您的讯息，您还有其他需要我服务的么？<br></div>
+                <div class="m-lite-msg-cursor"></div>
+            </div>
+
+            <div class="m-lite-msg-info">本次沟通已结束，如有问题欢迎再次咨询</div>
+
+        </div>
+
+        <div class="m-lite-editor">
+            <div class="m-lite-tool">
+			
+                <a href="#" class="m-lite-tool-sp-btn btn-export">导出聊天记录</a>
+                <a href="#" class="m-lite-tool-btn btn-face"></a>
+                <a href="#" class="m-lite-tool-btn btn-font"></a>
+
+                <div class="m-lite-tool-face BD-QIAO-IM-FACE-WRAP" style="display: none;">
+                    <table cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/1e376a99d4059562772aad9ac065fd71.gif" title="微笑" alt="微笑" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/c5ce7689438e5ee92c5942d4885fc198.gif" title="大笑" alt="大笑" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/d2ff68289e44c32d61f17e9cfb8f781a.gif" title="偷笑" alt="偷笑" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/564396330c9e704c27533dd0a9f38d56.gif" title="憨笑" alt="憨笑" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/33991a718d98b7bde46d1656acd1d84f.gif" title="得意" alt="得意" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/1eac4820cb2162ad0ea9050f730701ea.gif" title="可爱" alt="可爱" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/afb7b910b894d8638a5f5f60d66080bb.gif" title="害羞" alt="害羞" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/6eeeea78151b0d992342b5d974ea9748.gif" title="乖" alt="乖" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/3567d74d273570047d563a52487b458d.gif" title="淘气" alt="淘气" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/17a002956048d2cc3e7136a60995f4c5.gif" title="调皮" alt="调皮" class="J-face-item">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/6d177c2e8caa44b47950afd1c2d94ea1.gif" title="流泪" alt="流泪" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/f2468ad19982b6109525f86e60da0a40.gif" title="大哭" alt="大哭" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/f4075f32764665658fe69d475536685f.gif" title="撇嘴" alt="撇嘴" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/97aac5ef30ca5c313f5055d3303a901a.gif" title="闭嘴" alt="闭嘴" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/ea12132c217e29cc32a70ef2123baa55.gif" title="嘘" alt="嘘" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/0fd150d82ae7f2d174c9601f9ee09247.gif" title="鄙视" alt="鄙视" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/8484e2fcd13826ff6d311fa23f6133f1.gif" title="傲慢" alt="傲慢" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/46e7c6b53203f314943f5af66f6b9daf.gif" title="白眼" alt="白眼" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/8c1066c3a4fc9115b46e3ae72a19e3f4.gif" title="思考" alt="思考" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/fd2bdb138346f328795d068df107ec90.gif" title="困" alt="困" class="J-face-item"></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/d6c03a77dc812595b2f41fdde34d05a6.gif" title="睡" alt="睡" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/fd2f51cd66989306299d8ad075abbc89.gif" title="汗" alt="汗" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/b143058415f04e4f21302736326fb37c.gif" title="尴尬" alt="尴尬" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/c6fbb9628da63dc12c9a1fef25dea934.gif" title="惊讶" alt="惊讶" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/4a19620c98f2d809ea46900a0b552d7c.gif" title="惊恐" alt="惊恐" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/7e9cbda5e0b325f01d478f8e4adf69b2.gif" title="疑问" alt="疑问" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/18c3ccd14d992d8e5aa30acfe670d42f.gif" title="晕" alt="晕" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/d237de97c3277b7749ce839db39b0649.gif" title="敲打" alt="敲打" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/f2e7df81f1e48584a82c82f99d266b7c.gif" title="难过" alt="难过" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/3ced67ed7484ec180470b6cf8f0e44b3.gif" title="委屈" alt="委屈" class="J-face-item"></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/5c0aacf4ce01a07aa72ced20edfb1fb0.gif" title="色" alt="色" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/fd78f2b8f16086a940e90f370b2bb0d4.gif" title="抓狂" alt="抓狂" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/c6d1d4982260a4bad13aab943f7799f0.gif" title="愤怒" alt="愤怒" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/658d87d64e128385f28a59c15aa8cb91.gif" title="吐" alt="吐" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/ae2b37bc2c8186a5dad63a583ad278cb.gif" title="衰" alt="衰" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/b6db7f3a9e8a9c864046eb0eaa15942d.gif" title="再见" alt="再见" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/3890735fdd2f25319367532f660bbcd2.gif" title="左拥抱" alt="左拥抱" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/28a6dcccc96ad6d3082a0ff5554bebd6.gif" title="右拥抱" alt="右拥抱" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/eb06e9170d5b470f124d3943f537e714.gif" title="闪人" alt="闪人" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/d32893593db6217773e102bd694db4d8.gif" title="刀" alt="刀" class="J-face-item"></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/11d117a72c9cd5ffa2110c31cb4a385b.gif" title="吻" alt="吻" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/7f73aeabe8ddb4bb23e06de4e6072e40.gif" title="爱情" alt="爱情" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/b5fbcef53bf2d695db6bd48faa326585.gif" title="心碎" alt="心碎" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/5bc342dfc4b92d4c0cad3a4207a99380.gif" title="鲜花" alt="鲜花" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/9ef7d4c187f298a10953f5096cbe9162.gif" title="枯萎" alt="枯萎" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/f08d998e04027d92feaf0f8667bb016c.gif" title="胜利" alt="胜利" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/f143718613f47bb929e7134b2457f260.gif" title="OK" alt="OK" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/2f5113cfd0a33bfec485c222051db205.gif" title="大拇指" alt="大拇指" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/2ea09b4e887a6871e22d6e52a014179c.gif" title="弱" alt="弱" class="J-face-item"></a></td>
+                                <td><a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/a21bf8c01f41b9148b81aa1b53fb3a0e.gif" title="握手" alt="握手" class="J-face-item"></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="javascript:;">
+                                        <img src="http://qiao.baidu.com/v3/img/face/47198bf11c75a03e6249a1ccc1064bce.gif" title="蛋糕" alt="蛋糕" class="J-face-item">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/d6bde4b624846fd08500053358e154ae.gif" title="咖啡" alt="咖啡" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/e3aac3a4e1e36a02959f62d9bbcab7ac.gif" title="吃饭" alt="吃饭" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/75132ac5d361fd71a0b8acc6d99b7692.gif" title="太阳" alt="太阳" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/5bbb83756e3e652b43f9f03d638718b4.gif" title="月亮" alt="月亮" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/dcb31cac1b742034e9cdc5254f309d00.gif" title="星星" alt="星星" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/490183579bb95ab6eee1d695cdaef213.gif" title="便便" alt="便便" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/ede07ac7f02fbc613381069a77ff1b5c.gif" title="猪头" alt="猪头" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/eeb68b5c092155df924e69b2a1de21f9.gif" title="钱" alt="钱" class="J-face-item"></a>
+                                </td>
+                                <td>
+                                    <a href="javascript:;"><img src="http://qiao.baidu.com/v3/img/face/33037bedc05c33f5998f875c608d4ba1.gif" title="Hi" alt="Hi" class="J-face-item"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="m-lite-tool-font BD-QIAO-IM-FONT-WRAP" style="display: none;">
+
+                    <select class="m-font-family-select">
+                        <option value="宋体">宋体</option>
+                        <option value="楷体_GB2312">楷体_GB2312</option>
+                        <option value="黑体">黑体</option>
+                        <option value="隶书">隶书</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+
+                    <select class="m-font-size-select">
+                        <option value="8pt">8</option>
+                        <option value="9pt">9</option>
+                        <option value="10pt">10</option>
+                        <option value="11pt">11</option>
+                        <option value="12pt">12</option>
+                        <option value="14pt">14</option>
+                        <option value="16pt">16</option>
+                        <option value="18pt">18</option>
+                        <option value="20pt">20</option>
+                        <option value="22pt">22</option>
+                        <option value="24pt">24</option>
+                        <option value="26pt">26</option>
+                        <option value="28pt">28</option>
+                        <option value="36pt">36</option>
+                        <option value="48pt">48</option>
+                        <option value="72pt">72</option>
+                    </select>
+
+                    <a class="m-font-bold m-font-btn" title="加粗"></a>
+                    <a class="m-font-italic m-font-btn" title="斜体"></a>
+                    <a class="m-font-underline m-font-btn" title="下划线"></a>
+                    <a class="m-font-color m-font-btn" title="字体颜色"></a>
+
+                    <div class="m-font-palette" style="display: none;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td><a href="#"><span style="background-color:#990000"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#ff0000"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#ff9900"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#ffffff"></span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#"><span style="background-color:#ffff00"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#99ff99"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#006600"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#666666"></span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#"><span style="background-color:#99ccff"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#000099"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#990066"></span></a></td>
+                                    <td><a href="#"><span style="background-color:#000000"></span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+			<textarea class="m-lite-input-area" style="width:96%; padding:5px; margin:0px; font-size:15px; line-height:20px;"></textarea>
+        </div>
+
+        <div class="m-lite-opt">
+            <span class="m-lite-logo"></span>
+            <span class="m-lite-qiao">百度商桥</span>
+            <a href="#" hidefocus="false" title="按Ctrl+Enter发送消息" class="m-lite-opt-btn btn-send"></a>
+        </div>
+
+        <div class="m-lite-tip" style="display: none;"></div>
+
+    </div>
+
+
+</body>
