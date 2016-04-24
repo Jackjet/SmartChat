@@ -55,7 +55,7 @@
     height: 26px;
     line-height: 26px;
     border:1px solid #AFAFAF;
-    background: url(http://qiao.baidu.com/v3/img/matrix/bg.png) 0px -178px repeat-x;
+    background: url(../img/bg.png) 0px -178px repeat-x;
     width: auto;
     color: #333;
     text-align: left;
@@ -96,7 +96,7 @@
     overflow: hidden;
     text-align: center;
     vertical-align: middle;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) -16px -16px no-repeat;
+    background: url(../img/webim.png) -16px -16px no-repeat;
     *display: inline;
     *zoom: 1;
 }
@@ -108,7 +108,7 @@
     width: 16px;
     height: 16px;
     overflow: hidden;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) 0px -75px no-repeat;
+    background: url(../img/webim.png) 0px -75px no-repeat;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-title .btn-close {
@@ -268,7 +268,7 @@
     height: 26px;
     border: 1px solid #AFAFAF;
     line-height: 26px;
-    background: url(http://qiao.baidu.com/v3/img/matrix/bg.png) 0px -178px repeat-x;
+    background: url(../img/bg.png) 0px -178px repeat-x;
     width: auto;
     position: relative;
     overflow: visible;
@@ -286,14 +286,14 @@
     margin-top: 5px;
     margin-left: 5px;
     overflow: hidden;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) 0px -58px;
+    background: url(../img/webim.png) 0px -58px;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-tool .btn-face {
     width: 20px;
     height: 20px;
     margin-top: 3px;
-    background: url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) 0 -29px no-repeat;
+    background: url(../img/webim_toolbar.gif) 0 -29px no-repeat;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-tool .btn-face:hover {
@@ -308,7 +308,7 @@
     width: 20px;
     height: 20px;
     margin-top: 3px;
-    background: url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) 0 -89px no-repeat;
+    background: url(../img/webim_toolbar.gif) 0 -89px no-repeat;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-tool .btn-font:hover {
@@ -323,7 +323,7 @@
     float: right;
     padding-left: 20px;
     height:26px;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) -184px 5px no-repeat;
+    background: url(../img/webim.png) -184px 5px no-repeat;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-tool-face {
@@ -383,7 +383,7 @@
     width: 17px;
     margin: 0px 5px;
     overflow: hidden;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) -18px -44px no-repeat;
+    background: url(../img/webim.png) -18px -44px no-repeat;
     *display: inline;
     *zoom: 1;
 }
@@ -404,7 +404,7 @@
     /*width: 58px;*/
     width: 43px; /* 隐藏发送选项按钮 */
     height: 28px;
-    background: url(http://qiao.baidu.com/v3/img/matrix/webim.png) -35px -16px no-repeat;
+    background: url(../img/webim.png) -35px -16px no-repeat;
 }
 
 #BD_QIAO_WEBIM_LITE_WRAP .m-lite-opt-btn:hover {
@@ -442,7 +442,7 @@
     background-color: #fff;
 }
 .BD-QIAO-IM-FACE-WRAP td a:hover {
-    background:url(http://qiao.baidu.com/v3/img/webim_toolbar.gif);
+    background:url(../img/webim_toolbar.gif);
 }
 .BD-QIAO-IM-FACE-WRAP td img {
     display: block;
@@ -458,10 +458,10 @@
 
 #FaceTab{height:19px; width:350px; cursor:default}
 #FaceTab a{float:left; width:61px; height:19px; line-height:19px; text-align:center; text-decoration:none; color:#000}
-#FaceTab a.active{background:url(http://qiao.baidu.com/v3/img/webim_facetab.gif)}
+#FaceTab a.active{background:url(../img/webim_facetab.gif)}
 #FaceGroup table{border-collapse:collapse; border:0; }
 #FaceGroup td{width:19px; height:19px; border:1px #bcd solid; padding:5px;}
-#FaceGroup td.over{background:url(http://qiao.baidu.com/v3/img/webim_toolbar.gif)}
+#FaceGroup td.over{background:url(../img/webim_toolbar.gif)}
 #FaceGroup table img{display:block; width:19px; height:19px}
 #FaceGroup table span{display:block; width:19px; height:19px; cursor:default}
 
@@ -488,7 +488,7 @@
     width:20px; 
     height:20px; 
     display:inline-block; 
-    background: url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) no-repeat;
+    background: url(../img/webim_toolbar.gif) no-repeat;
 }
 .BD-QIAO-IM-FONT-WRAP .m-font-btn {
     *zoom: 1;
@@ -566,8 +566,8 @@
 }
 
 #Font{width:20px; height:20px; float:left; border:0; margin-right:3px;}
-.fontnormal{background:url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) 0 -89px}
-.fontover{background:url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) 0 -109px}
-.fonton{background:url(http://qiao.baidu.com/v3/img/webim_toolbar.gif) 0 -129px}
+.fontnormal{background:url(../img/webim_toolbar.gif) 0 -89px}
+.fontover{background:url(../img/webim_toolbar.gif) 0 -109px}
+.fonton{background:url(../img/webim_toolbar.gif) 0 -129px}
 
 .bd-map {text-decoration: underline !important;}
